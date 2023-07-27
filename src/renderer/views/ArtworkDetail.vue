@@ -1,11 +1,15 @@
 <template>
   <div class="flex flex-col h-screen">
-    <div class="w-full h-[80px] flex items-center justify-between p-6 text-2xl gap-4">
+    <div
+      class="w-full h-[80px] flex items-center justify-between p-6 text-2xl gap-4"
+    >
       <div class="flex items-center gap-4">
-        <button @click="router.back()" class="mr-2"><ArrowUp class="w-8 h-8"/></button>
+        <button @click="router.back()"><ArrowUp class="w-8 h-8" /></button>
         <span class="font-bold">Ferdiš Kostka</span>
         <span>{{ artwork.title }}</span>
-        <span class="whitespace-nowrap">({{ artwork.yearStart }} - {{ artwork.yearEnd }})</span>
+        <span class="whitespace-nowrap"
+          >{{ artwork.yearStart }} - {{ artwork.yearEnd }}</span
+        >
       </div>
       <div>ENG <span class="font-bold">SK</span></div>
     </div>
@@ -17,7 +21,7 @@
 import { onMounted, onBeforeUnmount } from "vue";
 import { loadScript, unloadScript } from "vue-plugin-load-script";
 import { useRoute, useRouter } from "vue-router";
-import ArrowUp from "../icons/ArrowUp.vue"
+import ArrowUp from "../icons/ArrowUp.vue";
 import { GALLERY } from "../consts";
 
 const route = useRoute();
