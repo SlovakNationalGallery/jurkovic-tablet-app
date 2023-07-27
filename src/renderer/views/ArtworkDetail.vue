@@ -11,20 +11,20 @@ const route = useRoute();
 
 onMounted(() => {
   const id = route.params.id;
-  loadScript("/object2vr_player.js")
+  loadScript("/catalogue/object2vr_player.js")
     .then(() => {
-      return loadScript("/skin.js");
+      return loadScript("/catalogue/skin.js");
     })
     .then(() => {
       const { object2vrPlayer, object2vrSkin } = window;
       const obj = new object2vrPlayer("container");
-      new object2vrSkin(obj, "/details/");
-      obj.readConfigUrl(`/details/${id}/${id}.xml`);
+      new object2vrSkin(obj, "/catalogue/details/");
+      obj.readConfigUrl(`/catalogue/details/${id}/${id}.xml`);
     });
 });
 
 onBeforeUnmount(() => {
-  unloadScript("/object2vr_player.js");
-  unloadScript("/skin.js");
+  unloadScript("/catalogue/object2vr_player.js");
+  unloadScript("/catalogue/skin.js");
 });
 </script>

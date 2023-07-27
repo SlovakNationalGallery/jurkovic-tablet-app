@@ -7,7 +7,7 @@
           tag="button"
           class="flex flex-col"
         >
-          <img :src="`previewImages/${artwork.id}.png`" />
+          <img :src="`catalogue/previewImages/${artwork.id}.png`" />
           <span>{{ artwork.title }}</span>
           <span>{{ artwork.yearStart }} - {{ artwork.yearEnd }}</span>
         </router-link>
