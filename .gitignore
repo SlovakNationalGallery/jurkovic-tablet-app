@@ -4,5 +4,4 @@ build
 
 .vscode
 .idea
-src/renderer/public/details
-src/renderer/images
+.DS_Store
