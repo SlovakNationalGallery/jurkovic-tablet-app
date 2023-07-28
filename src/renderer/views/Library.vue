@@ -7,8 +7,8 @@
       </div>
       <div>ENG <span class="font-bold">SK</span></div>
     </div>
-    <div class="grow flex items-center overflow-hidden">
-      <div class="w-full flex gap-7 snap-x snap-mandatory overflow-x-auto pb-5">
+    <div class="grow flex items-center">
+      <div class="w-full flex gap-7 snap-x snap-mandatory overflow-x-auto pb-5 no-scrollbar">
         <div class="snap-center shrink-0"><div class="shrink-0 w-[104px]"></div></div>
         <div class="snap-center shrink-0" v-for="publication in LIBRARY">
           <img class="shrink-0 w-[557px] h-[700px] rounded-lg border-2 border-black" :src="`library/images/${publication.id}.jpg`" />
