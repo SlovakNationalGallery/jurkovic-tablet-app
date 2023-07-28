@@ -18,6 +18,11 @@ const config = defineConfig({
         emptyOutDir: true,
     },
     plugins: [vuePlugin()],
+    resolve: {
+        alias: {
+          $fonts: Path.join(__dirname, 'src', 'renderer', 'public'),
+        }
+      }
 });
 
 module.exports = config;
