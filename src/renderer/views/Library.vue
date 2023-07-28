@@ -8,15 +8,19 @@
       <div>ENG <span class="font-bold">SK</span></div>
     </div>
     <div class="grow flex items-center">
-      <div class="w-full flex gap-7 snap-x snap-mandatory overflow-x-auto pb-5 no-scrollbar">
+      <div class="w-full flex gap-x-11 snap-x snap-mandatory overflow-x-auto no-scrollbar pt-10">
         <div class="snap-center shrink-0"><div class="shrink-0 w-[104px]"></div></div>
         <div class="snap-center shrink-0" v-for="publication in LIBRARY">
-          <img class="shrink-0 w-[557px] h-[700px] rounded-lg border-2 border-black" :src="`library/images/${publication.id}.jpg`" />
+          <div class="relative">
+            <div class="absolute w-full h-full bg-black z-0 rounded-xl"></div>
+            <img class="translate-x-4 -translate-y-4 shrink-0 w-[557px] h-[700px] rounded-xl border-2 border-black" :src="`library/images/${publication.id}.jpg`" />
+          </div>
+          <h2 class="text-4xl font-bold text-neutral-900 py-6">{{ publication.title }}</h2>
         </div>
         <div class="snap-center shrink-0"><div class="shrink-0 w-[104px]"></div></div>
       </div>
     </div>
-    <div class="w-full h-[72px] bg-[#FCF1DF] flex items-center justify-center p-6">
+    <div class="w-full h-[72px] bg-[#FCF1DF] flex items-center justify-center p-6 text-neutral-900">
       <Logo class="inline-block h-6 w-6" />
       <span class="ml-4 text-xl">Slovenská národná galéria</span>
     </div>
