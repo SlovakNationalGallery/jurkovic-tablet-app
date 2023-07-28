@@ -2,7 +2,7 @@
   <div class="flex flex-col h-screen">
     <div class="w-full h-[80px] flex items-center justify-between p-6 text-2xl">
       <div>
-        <span class="font-bold mr-4">Diela Ferdiša Kostku zo Logo</span>
+        <span class="font-bold mr-4">Diela Ferdiša Kostku zo SNG</span>
       </div>
     </div>
     <div class="grow columns-3 px-6">
