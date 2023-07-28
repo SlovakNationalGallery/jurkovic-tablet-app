@@ -19,6 +19,10 @@ npm run build # builds application, distributable files can be found in "dist" f
 
 # OR
 
+npm run build:mac -- -c.mac.identity=null # skip code-signing for faster build
+
+# OR
+
 npm run build -- --win --x64
 ```
 

@@ -20,7 +20,7 @@ const config = defineConfig({
     plugins: [vuePlugin()],
     resolve: {
         alias: {
-          $fonts: Path.join(__dirname, 'src', 'renderer', 'public'),
+          $public: Path.join(__dirname, 'src', 'renderer', 'public'),
         }
       }
 });
