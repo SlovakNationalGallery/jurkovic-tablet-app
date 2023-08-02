@@ -9,8 +9,7 @@
       <div>ENG <span class="font-bold">SK</span></div>
     </div>
     <div class="grow flex items-center">
-      <div class="w-full flex gap-x-11 snap-x snap-mandatory overflow-x-auto no-scrollbar pt-10">
-        <div class="snap-center shrink-0"><div class="shrink-0 w-[90px]"></div></div>
+      <div class="w-full flex gap-x-11 snap-x snap-mandatory overflow-x-auto no-scrollbar pt-10 px-[90px]">
         <div class="snap-center shrink-0" v-for="publication in LIBRARY">
           <div class="relative">
             <div class="absolute w-full h-full bg-black z-0 rounded-xl"></div>
@@ -18,7 +17,6 @@
           </div>
           <h2 class="text-4xl font-bold text-neutral-900 py-6">{{ publication.title }}</h2>
         </div>
-        <div class="snap-center shrink-0"><div class="shrink-0 w-[90px]"></div></div>
       </div>
     </div>
     <div class="w-full h-[72px] flex items-center justify-center p-6 text-neutral-900">
