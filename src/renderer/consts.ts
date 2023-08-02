@@ -330,5 +330,5 @@ export const GALLERY: Array<Artwork> = [
         yearEnd: 1951,
         descriptionSK: "Glazovaná keramika. SNG, NL 671, získané kúpou v roku 1972",
         descriptionEN: "Glazed ceramic. SNG, NL 671, acquired by purchase in 1972"
-    },
+    }
 ]
