@@ -9,7 +9,7 @@
       <div>ENG <span class="font-bold">SK</span></div>
     </div>
     <div class="grow flex items-center">
-      <div class="w-full flex gap-x-11 snap-x snap-mandatory overflow-x-auto no-scrollbar pt-10 px-[90px]">
+      <div class="w-full flex gap-x-11 snap-x snap-mandatory overflow-x-auto no-scrollbar pt-16 pb-6 px-[90px]">
         <div class="snap-center shrink-0" v-for="publication in LIBRARY">
           <div class="relative">
             <div class="absolute w-full h-full bg-black z-0 rounded-xl"></div>
