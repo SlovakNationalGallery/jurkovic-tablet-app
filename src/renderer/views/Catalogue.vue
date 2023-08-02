@@ -19,12 +19,12 @@
     <div
       class="sticky bottom-0 inset-x-0 h-[72px] flex items-center justify-center p-6"
     >
-      <SNG class="inline-block h-6 w-6" />
+      <Logo class="inline-block h-6 w-6" />
       <span class="ml-4 text-xl">Slovenská národná galéria</span>
     </div>
   </div>
 </template>
 <script setup lang="ts">
 import { GALLERY } from "../consts";
-import SNG from "../icons/SNG.vue";
+import Logo from "../icons/Logo.vue";
 </script>
