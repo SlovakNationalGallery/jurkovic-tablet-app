@@ -17,12 +17,7 @@ const config = defineConfig({
         outDir: Path.join(__dirname, 'build', 'renderer'),
         emptyOutDir: true,
     },
-    plugins: [vuePlugin()],
-    resolve: {
-        alias: {
-          $public: Path.join(__dirname, 'src', 'renderer', 'public'),
-        }
-      }
+    plugins: [vuePlugin()]
 });
 
 module.exports = config;
