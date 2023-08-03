@@ -2,14 +2,14 @@
   <div class="flex gap-2">
     <button
       :class="{ 'font-bold': lang === 'en' }"
-      @click="toggle"
+      @click="setLang('en')"
       :disabled="lang === 'en'"
     >
       ENG
     </button>
     <button
       :class="{ 'font-bold': lang === 'sk' }"
-      @click="toggle"
+      @click="setLang('sk')"
       :disabled="lang === 'sk'"
     >
       SK
@@ -19,5 +19,5 @@
 
 <script setup lang="ts">
 import { useLang } from "../composables/lang";
-const { lang, toggle } = useLang();
+const { lang, setLang } = useLang();
 </script>

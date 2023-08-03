@@ -9,6 +9,8 @@ export const trans = (path: string) => {
 }
 
 export function useLang() {
-    const toggle = () => { lang.value === "sk" ? lang.value = "en" : lang.value = "sk" }
-    return { toggle, lang, trans }
+    const setLang = (newLang: Lang) => {
+        lang.value = newLang
+    }
+    return { setLang, lang, trans }
 }

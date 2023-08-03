@@ -42,7 +42,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, onBeforeUnmount, ref, toRefs } from "vue";
+import { onMounted, onBeforeUnmount, ref } from "vue";
 import { loadScript, unloadScript } from "vue-plugin-load-script";
 import { useRoute, useRouter } from "vue-router";
 import ArrowUp from "../icons/ArrowUp.vue";
