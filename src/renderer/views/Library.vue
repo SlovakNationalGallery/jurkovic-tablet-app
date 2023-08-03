@@ -6,7 +6,7 @@
         <span class="mr-4">Práce lidu našeho</span>
         <span>1905</span>
       </div>
-      <div>ENG <span class="font-bold">SK</span></div>
+      <LanguageSwitcher />
     </div>
     <div class="grow flex items-center">
       <div class="w-full flex gap-x-11 snap-x snap-mandatory overflow-x-auto no-scrollbar pt-16 pb-6 px-[90px]">
@@ -31,6 +31,10 @@
   </div>
 </template>
 <script setup lang="ts">
+import LanguageSwitcher from "../components/LanguageSwitcher.vue";
 import { LIBRARY } from "../consts";
+import { useLang } from "../composables/lang";
 import Logo from "../icons/Logo.vue";
+
+const { trans } = useLang();
 </script>
