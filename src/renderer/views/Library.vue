@@ -10,12 +10,17 @@
     </div>
     <div class="grow flex items-center">
       <div class="w-full flex gap-x-11 snap-x snap-mandatory overflow-x-auto no-scrollbar pt-16 pb-6 px-[90px]">
-        <div class="snap-center shrink-0" v-for="publication in LIBRARY">
-          <div class="relative">
-            <div class="absolute w-full h-full bg-black z-0 rounded-xl"></div>
-            <img class="translate-x-4 -translate-y-4 shrink-0 w-[557px] h-[700px] rounded-xl border-2 border-black" :src="`library/images/${publication.id}.jpg`" />
-          </div>
-          <h2 class="text-4xl font-bold text-neutral-900 py-6">{{ publication.title }}</h2>
+        <div class="snap-center shrink-0" v-for="(publication, index) in LIBRARY">
+          <router-link :to="`/publication/${index}`" tag="button">
+            <div class="relative">
+              <div class="absolute w-full h-full bg-black z-0 rounded-xl"></div>
+              <img
+                class="translate-x-4 -translate-y-4 shrink-0 w-[557px] h-[700px] rounded-xl border-2 border-black"
+                :src="`library/images/${publication.id}.jpg`"
+              />
+            </div>
+            <h2 class="text-4xl font-bold text-neutral-900 py-6">{{ publication.title }}</h2>
+          </router-link>
         </div>
       </div>
     </div>
