@@ -30,20 +30,20 @@ const index = route.params.index;
 const artwork = GALLERY[Number(index)];
 
 onMounted(() => {
-  loadScript("/catalogue/object2vr_player.js")
+  loadScript("catalogue/object2vr_player.js")
     .then(() => {
-      return loadScript("/catalogue/skin.js");
+      return loadScript("catalogue/skin.js");
     })
     .then(() => {
       const { object2vrPlayer, object2vrSkin } = window;
       const obj = new object2vrPlayer("container");
-      new object2vrSkin(obj, "/catalogue/details/");
-      obj.readConfigUrl(`/catalogue/details/${artwork.id}/${artwork.id}.xml`);
+      new object2vrSkin(obj, "catalogue/details/");
+      obj.readConfigUrl(`catalogue/details/${artwork.id}/${artwork.id}.xml`);
     });
 });
 
 onBeforeUnmount(() => {
-  unloadScript("/catalogue/object2vr_player.js");
-  unloadScript("/catalogue/skin.js");
+  unloadScript("catalogue/object2vr_player.js");
+  unloadScript("catalogue/skin.js");
 });
 </script>
