@@ -6,12 +6,12 @@
       <div class="flex items-center gap-4">
         <button @click="router.back()"><ArrowUp class="w-8 h-8" /></button>
         <span class="font-bold">Ferdiš Kostka</span>
-        <span>{{ artwork.title }}</span>
+        <span>{{ trans(`gallery.${artwork.idNext}.title`) }}</span>
         <span class="whitespace-nowrap"
           >{{ artwork.yearStart }} - {{ artwork.yearEnd }}</span
         >
       </div>
-      <div>ENG <span class="font-bold">SK</span></div>
+      <LanguageSwitcher />
     </div>
     <div id="container" class="w-screen h-full"></div>
     <button
@@ -26,13 +26,15 @@
       class="absolute rounded-xl bottom-32 left-8 border-2 border-black mx-0 p-6 w-80"
     >
       <article class="flex flex-col">
-        <h2 class="text-xl font-bold">{{ artwork.titleSK }}</h2>
+        <h2 class="text-xl font-bold">
+          {{ trans(`gallery.${artwork.idNext}.title`) }}
+        </h2>
         <span class="text-base"
           >({{ artwork.yearStart }}
           {{ artwork.yearEnd ? `- ${artwork.yearEnd}` : "" }})</span
         >
         <p class="pt-4 text-lg leading-6">
-          {{ artwork.descriptionSK }}
+          {{ trans((`gallery.${artwork.idNext}.description`)) }}
         </p>
       </article>
     </dialog>
@@ -40,19 +42,24 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, onBeforeUnmount, ref } from "vue";
+import { onMounted, onBeforeUnmount, ref, toRefs } from "vue";
 import { loadScript, unloadScript } from "vue-plugin-load-script";
 import { useRoute, useRouter } from "vue-router";
 import ArrowUp from "../icons/ArrowUp.vue";
 import Info from "../icons/Info.vue";
 import Close from "../icons/Close.vue";
+import LanguageSwitcher from "../components/LanguageSwitcher.vue";
+
 import { GALLERY } from "../consts";
+import { useLang } from "../composables/lang";
+
 
 const route = useRoute();
 const router = useRouter();
 const index = route.params.index;
 const artwork = GALLERY[Number(index)];
 const isPopoverOpen = ref<boolean>(false);
+const { trans } = useLang();
 
 onMounted(() => {
   loadScript("/catalogue/object2vr_player.js")
