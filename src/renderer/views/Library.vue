@@ -21,10 +21,38 @@
           <router-link :to="`/publication/${index}`" tag="button">
             <div class="relative">
               <div class="absolute w-full h-full bg-black z-0 rounded-xl"></div>
-              <img
-                :class="`${index !== activeBookIndex ? 'translate-x-4 -translate-y-4' : 'translate-x-0' } transition-transform duration-300 shrink-0 w-[557px] h-[700px] rounded-xl border-2 border-black`"
-                :src="`library/images/${publication.id}.jpg`"
-              />
+              <div
+                :class="`${
+                  index !== activeBookIndex
+                    ? 'translate-x-4 -translate-y-4'
+                    : 'translate-x-0'
+                } transition-transform duration-300 shrink-0 w-[557px] h-[700px] rounded-xl border-2 border-black`"
+              >
+                <img
+                  :class="`${
+                    index !== activeBookIndex ? 'absolute inset-0' : 'rounded-xl absolute inset-0 animate-slideshow1'
+                  }`"
+                  :src="`library/images/${publication.id}.jpg`"
+                />
+                <img
+                  :class="`${
+                    index !== activeBookIndex ? 'hidden' : 'rounded-xl absolute inset-0 animate-slideshow2'
+                  }`"
+                  :src="`library/${publication.id}/${publication.id}-02.jpg`"
+                />
+                <img
+                  :class="`${
+                    index !== activeBookIndex ? 'hidden' : 'rounded-xl absolute inset-0 animate-slideshow3'
+                  }`"
+                  :src="`library/${publication.id}/${publication.id}-03.jpg`"
+                />
+                <img
+                  :class="`${
+                    index !== activeBookIndex ? 'hidden' : 'rounded-xl absolute inset-0 animate-slideshow4'
+                  }`"
+                  :src="`library/${publication.id}/${publication.id}-04.jpg`"
+                />
+              </div>
             </div>
             <h2 class="text-4xl font-bold text-neutral-900 py-6">
               {{ publication.title }}
@@ -51,7 +79,6 @@ const { trans } = useLang();
 
 const activeBookIndex = ref<Number>();
 const booksRefs = ref([]);
-
 const intersectionObserver = new IntersectionObserver(
   (entries, _) => {
     entries.forEach((entry) => {
