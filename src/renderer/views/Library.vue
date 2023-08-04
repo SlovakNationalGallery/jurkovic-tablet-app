@@ -33,11 +33,28 @@
         </div>
       </div>
     </div>
-    <div
-      class="w-full h-[72px] flex items-center justify-center p-6 text-neutral-900"
+    <div class="w-full h-[72px] flex items-center justify-between p-6 text-neutral-900">
+      <div class="flex items-center">
+        <Logo class="h-6 w-6" />
+        <span class="ml-4 text-xl">{{ trans("sng") }}</span>
+      </div>
+      <button class="" @click="isPopoverOpen = !isPopoverOpen">
+        <Close class="w-8 h-8" v-if="isPopoverOpen" />
+        <Info class="w-8 h-8" v-else />
+      </button>
+      <dialog
+      :open="isPopoverOpen"
+      class="absolute rounded-xl bottom-16 border-2 border-black ml-auto mr-6 p-6 w-96"
     >
-      <Logo class="h-6 w-6" />
-      <span class="ml-4 text-xl">{{ trans("sng") }}</span>
+      <article class="flex flex-col">
+        <p class="pt-2 text-lg leading-6">
+          {{ trans("worksOfSlovakPeopleDescription1") }}
+        </p>
+        <p class="pt-2 text-lg leading-6">
+          {{ trans("worksOfSlovakPeopleDescription2") }}
+        </p>
+      </article>
+    </dialog>
     </div>
   </div>
 </template>
@@ -47,7 +64,11 @@ import LanguageSwitcher from "../components/LanguageSwitcher.vue";
 import { LIBRARY } from "../consts";
 import { useLang } from "../composables/lang";
 import Logo from "../icons/Logo.vue";
+import Info from "../icons/Info.vue";
+import Close from "../icons/Close.vue";
+
 const { trans } = useLang();
+const isPopoverOpen = ref<boolean>(false);
 
 const activeBookIndex = ref<Number>();
 const booksRefs = ref([]);
@@ -63,7 +84,5 @@ const intersectionObserver = new IntersectionObserver(
   { threshold: 1 }
 );
 
-onMounted(() =>
-  booksRefs.value.map((bookRef) => intersectionObserver.observe(bookRef))
-);
+onMounted(() => booksRefs.value.map((bookRef) => intersectionObserver.observe(bookRef)));
 </script>
