@@ -6,12 +6,15 @@ function createWindow () {
     // width: 1280,
     // height: 1920,
     fullscreen: true,
+    kiosk: true,
     webPreferences: {
       preload: join(__dirname, 'preload.js'),
       nodeIntegration: false,
       contextIsolation: true,
     }
   });
+
+  mainWindow.setMenuBarVisibility(false);
 
   if (process.env.NODE_ENV === 'development') {
     const rendererPort = process.argv[2];

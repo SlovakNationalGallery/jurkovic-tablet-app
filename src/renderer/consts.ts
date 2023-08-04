@@ -16,6 +16,8 @@ export const TRANSLATIONS = {
         worksByFerdišKostka: "Diela Ferdiša Kostku zo SNG",
         sng: "Slovenská národná galéria",
         worksOfSlovakPeople: "Práce lidu našeho",
+        worksOfSlovakPeopleDescription1: "Dušan Samuel Jurkovič: Práce lidu našeho. Lidové stavby, zařízení a výzdoba obydlí, drobné práce. Viedeň : A. Schroll & Co., 1905. 6 zošitov. Fotografie: Josef Klvaňa",
+        worksOfSlovakPeopleDescription2: "Digitalizácia: Knižnica Akadémie vied ČR, Praha",
         gallery: {
             "NL_197": {
                 title: "Vinobranie",
@@ -138,7 +140,9 @@ export const TRANSLATIONS = {
     en: {
         sng: "Slovak National Gallery",
         worksByFerdišKostka: "Works by Ferdiš Kostka in SNG collections",
-        worksOfSlovakPeople: "Works of Slovak people",
+        worksOfSlovakPeople: "Works of Our People",
+        worksOfSlovakPeopleDescription1: "Dušan Samuel Jurkovič: Works of Our People. Vernacular buildings, furnishings, and decoration of dwellings, small works. Wien : A. Schroll & Co., 1905. 6 notebooks. Photographs: Josef Klvaňa",
+        worksOfSlovakPeopleDescription2: "Digitalisation Library of Czech Academy of Sciences, Prag",
         gallery: {
             "NL_197":
             {
