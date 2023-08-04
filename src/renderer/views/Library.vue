@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col h-screen bg-[#FFF3E3]">
     <div class="w-full h-[80px] flex items-center justify-between p-6 text-2xl">
-      <div>
-        <span class="font-bold mr-4">Dušan Jurkovič</span>
-        <span class="mr-4">Práce lidu našeho</span>
+      <div class="flex items-center gap-4">
+        <span class="font-bold">Dušan Jurkovič</span>
+        <span>Práce lidu našeho</span>
         <span>1905</span>
       </div>
       <LanguageSwitcher />
@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="w-full h-[72px] flex items-center justify-center p-6 text-neutral-900">
-      <Logo class="inline-block h-6 w-6" />
+      <Logo class="h-6 w-6" />
       <span class="ml-4 text-xl">Slovenská národná galéria</span>
     </div>
   </div>
