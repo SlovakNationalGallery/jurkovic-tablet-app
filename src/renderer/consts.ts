@@ -138,7 +138,7 @@ export const TRANSLATIONS = {
     en: {
         sng: "Slovak National Gallery",
         worksByFerdišKostka: "Works by Ferdiš Kostka in SNG collections",
-        worksOfSlovakPeople: "Works of Slovak people",
+        worksOfSlovakPeople: "Works of Our People",
         gallery: {
             "NL_197":
             {
