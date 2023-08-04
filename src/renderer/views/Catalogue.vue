@@ -13,7 +13,7 @@
           tag="button"
           class="flex flex-col pb-4"
         >
-          <img :src="`catalogue/previewImages/${artwork.id}.png`" />
+          <img :src="`catalogue/previewImages/${artwork.id}.jpg`" />
         </router-link>
       </div>
     </div>
