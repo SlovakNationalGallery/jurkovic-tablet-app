@@ -6,7 +6,7 @@
       <div class="flex items-center gap-4">
         <button @click="router.back()"><ArrowUp class="w-8 h-8" /></button>
         <span class="font-bold">Ferdiš Kostka</span>
-        <span>{{ trans(`gallery.${artwork.idNext}.title`) }}</span>
+        <span>{{ trans(`gallery.${artwork.id}.title`) }}</span>
         <span class="whitespace-nowrap"
           >{{ artwork.yearStart }} - {{ artwork.yearEnd }}</span
         >
@@ -15,26 +15,26 @@
     </div>
     <div id="container" class="w-screen h-full"></div>
     <button
-      class="absolute bottom-8 left-8 z-[1001]"
+      class="absolute bottom-8 right-[12rem] z-[1001]"
       @click="isPopoverOpen = !isPopoverOpen"
     >
-      <Close class="w-12 h-12" v-if="isPopoverOpen" />
-      <Info class="w-12 h-12" v-else />
+      <Close class="w-8 h-8" v-if="isPopoverOpen" />
+      <Info class="w-8 h-8" v-else />
     </button>
     <dialog
       :open="isPopoverOpen"
-      class="absolute rounded-xl bottom-32 left-8 border-2 border-black mx-0 p-6 w-80"
+      class="absolute rounded-xl bottom-32 border-2 border-black ml-auto mr-12 p-6 w-96"
     >
       <article class="flex flex-col">
         <h2 class="text-xl font-bold">
-          {{ trans(`gallery.${artwork.idNext}.title`) }}
+          {{ trans(`gallery.${artwork.id}.title`) }}
         </h2>
         <span class="text-base"
           >({{ artwork.yearStart }}
           {{ artwork.yearEnd ? `- ${artwork.yearEnd}` : "" }})</span
         >
         <p class="pt-4 text-lg leading-6">
-          {{ trans((`gallery.${artwork.idNext}.description`)) }}
+          {{ trans((`gallery.${artwork.id}.description`)) }}
         </p>
       </article>
     </dialog>
@@ -70,7 +70,7 @@ onMounted(() => {
       const { object2vrPlayer, object2vrSkin } = window;
       const obj = new object2vrPlayer("container");
       new object2vrSkin(obj, "catalogue/details/");
-      obj.readConfigUrl(`catalogue/details/${artwork.id}/${artwork.id}.xml`);
+      obj.readConfigUrl(`catalogue/details/SNG--${artwork.id}/SNG--${artwork.id}_out.xml`);
     });
 });
 
