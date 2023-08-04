@@ -12,14 +12,10 @@ type ArtworkTranslation = {
 
 export type Lang = "en" | "sk"
 
-type Translations = {
-    [key in Lang]: {
-        [key: string]: { [key: string]: ArtworkTranslation }
-    }
-}
-
-export const TRANSLATIONS: Translations = {
+export const TRANSLATIONS = {
     sk: {
+        worksByFerdišKostka: "Diela Ferdiša Kostku zo SNG",
+        sng: "Slovenská národná galéria",
         gallery: {
             "NL 197": {
                 title: "Vinobranie",
@@ -140,6 +136,8 @@ export const TRANSLATIONS: Translations = {
         }
     },
     en: {
+        sng: "Slovak National Gallery",
+        worksByFerdišKostka: "Works by Ferdiš Kostka in SNG collections",
         gallery: {
             "NL 197":
             {
