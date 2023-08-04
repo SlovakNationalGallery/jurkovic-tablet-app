@@ -3,7 +3,7 @@
     <div class="w-full h-[80px] flex items-center justify-between p-6 text-2xl">
       <div class="flex items-center gap-4">
         <span class="font-bold">Dušan Jurkovič</span>
-        <span>Práce lidu našeho</span>
+        <span>{{ trans('worksOfSlovakPeople') }}</span>
         <span>1905</span>
       </div>
       <LanguageSwitcher />
@@ -26,7 +26,7 @@
     </div>
     <div class="w-full h-[72px] flex items-center justify-center p-6 text-neutral-900">
       <Logo class="h-6 w-6" />
-      <span class="ml-4 text-xl">Slovenská národná galéria</span>
+      <span class="ml-4 text-xl">{{ trans('sng') }}</span>
     </div>
   </div>
 </template>
@@ -35,6 +35,5 @@ import LanguageSwitcher from "../components/LanguageSwitcher.vue";
 import { LIBRARY } from "../consts";
 import { useLang } from "../composables/lang";
 import Logo from "../icons/Logo.vue";
-
 const { trans } = useLang();
 </script>
