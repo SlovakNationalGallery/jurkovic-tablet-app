@@ -34,24 +34,14 @@
                   }`"
                   :src="`library/images/${publication.id}.jpg`"
                 />
-                <img
+                <template v-for="(pageNumber, pageIndex) in publication.featuredPages">
+                  <img
                   :class="`${
-                    index !== activeBookIndex ? 'hidden' : 'rounded-xl absolute inset-0 animate-slideshow2'
+                    index !== activeBookIndex ? 'hidden' : 'rounded-xl absolute inset-0 animate-slideshow' + (pageIndex+2)
                   }`"
-                  :src="`library/${publication.id}/${publication.id}-02.jpg`"
+                  :src="`library/${publication.id}/${publication.id}-${String(pageNumber).padStart(2, '0')}.jpg`"
                 />
-                <img
-                  :class="`${
-                    index !== activeBookIndex ? 'hidden' : 'rounded-xl absolute inset-0 animate-slideshow3'
-                  }`"
-                  :src="`library/${publication.id}/${publication.id}-03.jpg`"
-                />
-                <img
-                  :class="`${
-                    index !== activeBookIndex ? 'hidden' : 'rounded-xl absolute inset-0 animate-slideshow4'
-                  }`"
-                  :src="`library/${publication.id}/${publication.id}-04.jpg`"
-                />
+                </template>
               </div>
             </div>
             <h2 class="text-4xl font-bold text-neutral-900 py-6">

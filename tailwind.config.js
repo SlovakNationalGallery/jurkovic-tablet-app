@@ -55,4 +55,10 @@ module.exports = {
     },
   },
   plugins: [],
+  safelist: [
+    'animate-slideshow1',
+    'animate-slideshow2',
+    'animate-slideshow3',
+    'animate-slideshow4',
+  ]
 };
