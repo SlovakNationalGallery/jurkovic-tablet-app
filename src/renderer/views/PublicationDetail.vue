@@ -10,7 +10,14 @@
       <LanguageSwitcher />
     </div>
     <div class="grow flex items-center">
-      {{ publication.title }}
+      <div class="w-full flex gap-x-11 snap-x snap-mandatory overflow-x-auto no-scrollbar pt-16 pb-6 px-11">
+        <div class="snap-center shrink-0" v-for="index in publication.pages">
+            <img
+              class="w-[809px] h-auto"
+              :src="`library/${publication.id}/${publication.id}-${String(index).padStart(2, '0')}.jpg`"
+            />
+        </div>
+      </div>
     </div>
     <div class="w-full h-[72px] flex items-center justify-center p-6 text-neutral-900">
       <Logo class="h-6 w-6" />

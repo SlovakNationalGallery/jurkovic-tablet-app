@@ -293,32 +293,39 @@ export const TRANSLATIONS = {
 type Publication = {
     id: string
     title: string
+    pages: Number
 }
 
 export const LIBRARY: Array<Publication> = [
     {
         id: "svazek1",
         title: "1. sešit",
+        pages: 18
     },
     {
         id: "svazek2",
         title: "2. sešit",
+        pages: 14
     },
     {
         id: "svazek3",
         title: "3. sešit",
+        pages: 14
     },
     {
         id: "svazek4",
         title: "4. sešit",
+        pages: 13
     },
     {
         id: "svazek5",
         title: "5. sešit",
+        pages: 14
     },
     {
         id: "svazek6",
         title: "6. sešit",
+        pages: 14
     }
 ]
 
