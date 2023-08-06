@@ -11,15 +11,20 @@
     </div>
     <div class="grow flex items-center">
       <div class="w-full flex gap-x-11 snap-x snap-mandatory overflow-x-auto no-scrollbar pt-16 pb-6 px-11">
-        <div class="w-[809px] h-[1018px] overflow-hidden" ref="wrapper" @touchstart="handleTouchStart" @touchmove="handleTouchMove" @touchend="handleTouchEnd">
-          <img :style="{ transform: `scale(${scale})`, width: '809px', height: '1018px' }" :src="`library/${publication.id}/${publication.id}-${String(1).padStart(2, '0')}.jpg`" />
+        <div
+          class="snap-center shrink-0 w-[809px] h-[1018px] overflow-hidden"
+          v-for="index in publication.pages"
+          :key="index"
+          ref="wrapper"
+          @touchstart="handleTouchStart"
+          @touchmove="handleTouchMove"
+        >
+          <img
+            class="w-[809px] h-auto"
+            :style="{ transform: `scale(${scale})` }"
+            :src="`library/${publication.id}/${publication.id}-${String(index).padStart(2, '0')}.jpg`"
+          />
         </div>
-        <!-- <div class="snap-center shrink-0" v-for="index in publication.pages">
-            <img
-              class="w-[809px] h-auto"
-              :src="`library/${publication.id}/${publication.id}-${String(index).padStart(2, '0')}.jpg`"
-            />
-        </div> -->
       </div>
     </div>
     <div class="w-full h-[72px] flex items-center justify-center p-6 text-neutral-900">
@@ -30,7 +35,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onUnmounted } from 'vue';
+import { ref, onUnmounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { LIBRARY } from "../consts";
 import ArrowUp from "../icons/ArrowUp.vue";
@@ -52,15 +57,9 @@ let initialScale = 1;
 let initialX = 0;
 let initialY = 0;
 
-const imageStyle = {
-  transform: `scale(${scale}) translate(${initialX}px, ${initialY}px)`,
-  width: '809px',
-  height: '1018px',
-};
-
 const handleTouchStart = (event: TouchEvent) => {
   if (event.touches.length === 2) {
-    event.preventDefault(); 
+    event.preventDefault();
     const touch1 = event.touches[0];
     const touch2 = event.touches[1];
     initialDistance = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
@@ -79,7 +78,7 @@ const handleTouchStart = (event: TouchEvent) => {
 
 const handleTouchMove = (event: TouchEvent) => {
   if (event.touches.length === 2) {
-    event.preventDefault(); 
+    event.preventDefault();
     const touch1 = event.touches[0];
     const touch2 = event.touches[1];
     const newDistance = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
@@ -88,8 +87,8 @@ const handleTouchMove = (event: TouchEvent) => {
     const touch = event.touches[0];
     const rect = wrapper.value.getBoundingClientRect();
     if (rect) {
-      const maxX = rect.width - (rect.width * scale.value);
-      const maxY = rect.height - (rect.height * scale.value);
+      const maxX = rect.width - rect.width * scale.value;
+      const maxY = rect.height - rect.height * scale.value;
       const newX = Math.min(Math.max(0, touch.clientX - rect.left), maxX);
       const newY = Math.min(Math.max(0, touch.clientY - rect.top), maxY);
       initialX = newX;
@@ -102,5 +101,4 @@ onUnmounted(() => {
   initialDistance = 0;
   initialScale = 1;
 });
-
 </script>
