@@ -13,16 +13,17 @@
       <div class="w-full flex gap-x-11 snap-x snap-mandatory overflow-x-auto no-scrollbar pt-16 pb-6 px-11">
         <div
           class="snap-center shrink-0 w-[809px] h-[1018px] overflow-hidden"
-          v-for="index in publication.pages"
+          v-for="(image, index) in images"
           :key="index"
-          ref="wrapper"
-          @touchstart="handleTouchStart"
-          @touchmove="handleTouchMove"
+          :ref="(el) => (image.wrapperRef = el)"
         >
           <img
             class="w-[809px] h-auto"
-            :style="{ transform: `scale(${scale})` }"
-            :src="`library/${publication.id}/${publication.id}-${String(index).padStart(2, '0')}.jpg`"
+            :style="getImageStyle(index)"
+            :src="image.src"
+            @touchstart="(event) => handleTouchStart(event, index)"
+            @touchmove="(event) => handleTouchMove(event, index)"
+            @touchend="(event) => handleTouchEnd(event, index)"
           />
         </div>
       </div>
@@ -35,7 +36,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, Ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { LIBRARY } from "../consts";
 import ArrowUp from "../icons/ArrowUp.vue";
@@ -49,56 +50,104 @@ const index = route.params.index;
 const publication = LIBRARY[Number(index)];
 const { trans } = useLang();
 
-const wrapper = ref<HTMLElement | null>(null);
-const scale = ref(1);
-const minScale = 1;
-let initialDistance = 0;
-let initialScale = 1;
-let initialX = 0;
-let initialY = 0;
+interface ImageData {
+  src: string;
+  scale: number;
+  initialX: number;
+  initialY: number;
+  initialDistance: number;
+  initialScale: number;
+  wrapperRef: Ref<HTMLElement | null>;
+}
 
-const handleTouchStart = (event: TouchEvent) => {
+const images: Ref<Array<ImageData>> = ref([]);
+
+const minScale = 1;
+const maxScale = 3;
+
+const handleTouchStart = (event: TouchEvent, index: number) => {
+  const image = images.value[index];
   if (event.touches.length === 2) {
     event.preventDefault();
     const touch1 = event.touches[0];
     const touch2 = event.touches[1];
-    initialDistance = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
-    initialScale = scale.value;
-  } else if (event.touches.length === 1) {
-    initialX = initialX || 0;
-    initialY = initialY || 0;
+    image.initialDistance = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
+    image.initialScale = image.scale;
+  } else if (event.touches.length === 1 && image.scale > 1) {
+    event.preventDefault();
     const touch = event.touches[0];
-    const rect = wrapper.value?.getBoundingClientRect();
+    const rect = image.wrapperRef.getBoundingClientRect();
     if (rect) {
-      initialX = touch.clientX - rect.left;
-      initialY = touch.clientY - rect.top;
+      console.log("touch.clientX: " + touch.clientX);
+      console.log("rect.left: " + rect.left);
+      // image.initialX = touch.clientX - rect.left;
+      // image.initialY = touch.clientY - rect.top;
+      // image.initialX = (touch.clientX - rect.left) / image.scale;
+      // image.initialY = (touch.clientY - rect.top) / image.scale;
     }
   }
 };
 
-const handleTouchMove = (event: TouchEvent) => {
+const handleTouchMove = (event: TouchEvent, index: number) => {
+  const image = images.value[index];
   if (event.touches.length === 2) {
     event.preventDefault();
     const touch1 = event.touches[0];
     const touch2 = event.touches[1];
     const newDistance = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
-    scale.value = Math.max(minScale, initialScale * (newDistance / initialDistance));
-  } else if (event.touches.length === 1 && wrapper.value) {
+    image.scale = Math.min(maxScale, Math.max(minScale, image.initialScale * (newDistance / image.initialDistance)));
+  } else if (event.touches.length === 1 && image.scale > 1) {
+    event.preventDefault();
     const touch = event.touches[0];
-    const rect = wrapper.value.getBoundingClientRect();
+    const rect = image.wrapperRef.getBoundingClientRect();
     if (rect) {
-      const maxX = rect.width - rect.width * scale.value;
-      const maxY = rect.height - rect.height * scale.value;
-      const newX = Math.min(Math.max(0, touch.clientX - rect.left), maxX);
-      const newY = Math.min(Math.max(0, touch.clientY - rect.top), maxY);
-      initialX = newX;
-      initialY = newY;
+      console.log("touch.clientX: " + touch.clientX);
+      console.log("rect.left: " + rect.left);
+      // const maxX = rect.width - rect.width * image.scale;
+      // const maxY = rect.height - rect.height * image.scale;
+      // const newX = Math.min(Math.max(0, touch.clientX - rect.left), maxX);
+      // const newY = Math.min(Math.max(0, touch.clientY - rect.top), maxY);
+      // image.initialX = newX;
+      // image.initialY = newY;
+      const offsetX = (touch.clientX - rect.left) / image.scale - image.initialX;
+      const offsetY = (touch.clientY - rect.top) / image.scale - image.initialY;
+      image.initialX += offsetX;
+      image.initialY += offsetY;
     }
   }
 };
 
-onUnmounted(() => {
-  initialDistance = 0;
-  initialScale = 1;
+const handleTouchEnd = (event: TouchEvent, index: number) => {
+  const image = images.value[index];
+  image.initialDistance = 0;
+  image.initialScale = image.scale;
+};
+
+onMounted(() => {
+  for (let i = 0; i < Number(publication.pages); i++) {
+    images.value.push({
+      src: `library/${publication.id}/${publication.id}-${String(i + 1).padStart(2, "0")}.jpg`,
+      scale: 1,
+      initialX: 0,
+      initialY: 0,
+      initialDistance: 0,
+      initialScale: 1,
+      wrapperRef: ref(null),
+    });
+  }
 });
+
+onUnmounted(() => {
+  images.value.forEach((image) => {
+    image.initialDistance = 0;
+    image.initialScale = 1;
+  });
+});
+
+const getImageStyle = (index: number) => {
+  const { scale, initialX, initialY } = images.value[index];
+  return {
+    transform: `scale(${scale}) translate(${initialX}px, ${initialY}px)`,
+  };
+};
 </script>
