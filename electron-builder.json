@@ -9,8 +9,9 @@
         "allowToChangeInstallationDirectory": true,
         "shortcutName": "Jurkovic App"
     },
+    "compression": "store",
     "win": {
-        "target": "nsis"
+        "target": "nsis-web"
     },
     "linux":  {
         "target": ["snap"]
