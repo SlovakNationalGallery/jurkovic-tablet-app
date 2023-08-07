@@ -74,17 +74,14 @@ const handleTouchStart = (event: TouchEvent, index: number) => {
     image.initialDistance = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
     image.initialScale = image.scale;
   } else if (event.touches.length === 1 && image.scale > 1) {
-    event.preventDefault();
-    const touch = event.touches[0];
-    const rect = image.wrapperRef.getBoundingClientRect();
-    if (rect) {
-      console.log("touch.clientX: " + touch.clientX);
-      console.log("rect.left: " + rect.left);
-      // image.initialX = touch.clientX - rect.left;
-      // image.initialY = touch.clientY - rect.top;
-      // image.initialX = (touch.clientX - rect.left) / image.scale;
-      // image.initialY = (touch.clientY - rect.top) / image.scale;
-    }
+    // @TODO: implement panning
+    // event.preventDefault();
+    // const touch = event.touches[0];
+    // const rect = image.wrapperRef.getBoundingClientRect();
+    // if (rect) {
+    //   image.initialX = (touch.clientX - rect.left) / image.scale;
+    //   image.initialY = (touch.clientY - rect.top) / image.scale;
+    // }
   }
 };
 
@@ -97,23 +94,16 @@ const handleTouchMove = (event: TouchEvent, index: number) => {
     const newDistance = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
     image.scale = Math.min(maxScale, Math.max(minScale, image.initialScale * (newDistance / image.initialDistance)));
   } else if (event.touches.length === 1 && image.scale > 1) {
-    event.preventDefault();
-    const touch = event.touches[0];
-    const rect = image.wrapperRef.getBoundingClientRect();
-    if (rect) {
-      console.log("touch.clientX: " + touch.clientX);
-      console.log("rect.left: " + rect.left);
-      // const maxX = rect.width - rect.width * image.scale;
-      // const maxY = rect.height - rect.height * image.scale;
-      // const newX = Math.min(Math.max(0, touch.clientX - rect.left), maxX);
-      // const newY = Math.min(Math.max(0, touch.clientY - rect.top), maxY);
-      // image.initialX = newX;
-      // image.initialY = newY;
-      const offsetX = (touch.clientX - rect.left) / image.scale - image.initialX;
-      const offsetY = (touch.clientY - rect.top) / image.scale - image.initialY;
-      image.initialX += offsetX;
-      image.initialY += offsetY;
-    }
+    // @TODO: implement panning
+    // event.preventDefault();
+    // const touch = event.touches[0];
+    // const rect = image.wrapperRef.getBoundingClientRect();
+    // if (rect) {
+    //   const newX = (touch.clientX - rect.left) / image.scale;
+    //   const newY = (touch.clientY - rect.top) / image.scale;
+    //   image.initialX = newX;
+    //   image.initialY = newY;
+    // }
   }
 };
 
