@@ -4,49 +4,55 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        slideshow1: "appear1 16s linear infinite",
-        slideshow2: "appear2 16s linear infinite",
-        slideshow3: "appear3 16s linear infinite",
-        slideshow4: "appear4 16s linear infinite",
+        slideshow1: "appear1 13s linear infinite",
+        slideshow2: "appear2 13s linear infinite",
+        slideshow3: "appear3 13s linear infinite",
+        slideshow4: "appear4 13s linear infinite",
       },
       keyframes: {
         appear1: {
-          "0%, 24%": {
+          "0%, 14%": {
             opacity: 1,
           },
-          "25%, 100%": {
+          "15%, 88%": {
             opacity: 0,
           },
+          "89%, 100%": {
+            opacity: 1
+          }
         },
         appear2: {
-          "0%, 24%": {
-            opacity: 0,
-          },
-          "25%, 49%": {
+          "13%, 40%": {
             opacity: 1,
           },
-          "50%, 100%": {
+          "41%, 100%": {
+            opacity: 0,
+          },
+          "0%, 12%": {
             opacity: 0,
           },
         },
         appear3: {
-          "0%, 49%": {
+          "0%, 38%": {
             opacity: 0,
           },
-          "50%, 74%": {
+          "39%, 66%": {
             opacity: 1,
           },
-          "75%, 100%": {
+          "67%, 100%": {
             opacity: 0,
           },
         },
         appear4: {
-          "0%, 74%": {
+          "0%, 64%": {
             opacity: 0,
           },
-          "75%, 100%": {
+          "65%, 90%": {
             opacity: 1,
           },
+          "91%, 100%": {
+            opacity: 0
+          }
         },
       },
       fontFamily: {
