@@ -12,13 +12,13 @@
     <div class="grow flex items-center">
       <div class="w-full flex gap-x-11 snap-x snap-mandatory overflow-x-auto no-scrollbar pt-16 pb-6 px-11">
         <div
-          class="snap-center shrink-0 w-[809px] h-[1018px] overflow-hidden flex items-center"
+          class="snap-center shrink-0 w-[700px] h-[880px] overflow-hidden flex items-center"
           v-for="(image, index) in images"
           :key="index"
           :ref="(el) => (image.wrapperRef = el)"
         >
           <img
-            class="w-[809px] h-auto"
+            class="w-[700px] h-auto"
             :style="getImageStyle(index)"
             :src="image.src"
             @touchstart="(event) => handleTouchStart(event, index)"
