@@ -4,8 +4,7 @@
       <div class="flex items-center gap-4">
         <button @click="router.back()"><ArrowUp class="w-8 h-8" /></button>
         <span class="font-bold">Dušan Jurkovič</span>
-        <span>{{ trans("worksOfSlovakPeople") }}</span>
-        <span>1905</span>
+        <span>{{ trans(`library.${publication.id}.title`) }}</span>
       </div>
       <LanguageSwitcher />
     </div>
