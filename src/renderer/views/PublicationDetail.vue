@@ -114,7 +114,7 @@ const handleTouchEnd = (event: TouchEvent, index: number) => {
 };
 
 onMounted(() => {
-  for (let i = 0; i < Number(publication.pages); i++) {
+  for (let i = 1; i < Number(publication.pages); i++) {
     images.value.push({
       src: `library/${publication.id}/${publication.id}-${String(i + 1).padStart(2, "0")}.jpg`,
       scale: 1,
