@@ -32,7 +32,7 @@ export const TRANSLATIONS = {
                 description: "Glazovaná keramika. SNG, NL 199, získané kúpou v roku 1974"
             },
             "NL_673": {
-                title: "Váza V.",
+                title: "Džbán",
                 description: "Glazovaná keramika. SNG, NL 673, získané kúpou v roku 1972"
             },
             "NL_200": {
@@ -40,7 +40,7 @@ export const TRANSLATIONS = {
                 description: "Glazovaná keramika. SNG, NL 200, získané kúpou v roku 1974"
             },
             "NL_674": {
-                title: "Džbán na víno",
+                title: "Džbán s motívom Adama a Evy",
                 description: "Glazovaná keramika. SNG, NL 674, získané kúpou v roku 1972"
             },
             "NL_195": {
@@ -48,7 +48,7 @@ export const TRANSLATIONS = {
                 description: "Glazovaná keramika. SNG, NL 195, získané kúpou v roku 1974"
             },
             "NL_667": {
-                title: "Veľký džbán",
+                title: "Čepák",
                 description: "Glazovaná keramika. SNG, NL 667, získané kúpou v roku 1972"
             },
             "NL_234": {
@@ -76,7 +76,7 @@ export const TRANSLATIONS = {
                 description: "Glazovaná keramika. SNG, NL 666, získané kúpou v roku 1972"
             },
             "NL_670": {
-                title: "Váza II.",
+                title: "Džbán",
                 description: "Glazovaná keramika. SNG, NL 670, získané kúpou v roku 1972"
             },
             "NL_196": {
@@ -84,15 +84,15 @@ export const TRANSLATIONS = {
                 description: "Glazovaná keramika. SNG, NL 196, získané kúpou v roku 1974"
             },
             "NL_672": {
-                title: "Váza IV.",
+                title: "Džbán",
                 description: "Glazovaná keramika. SNG, NL 672, získané kúpou v roku 1972"
             },
             "NL_663": {
-                title: "Veľká misa",
+                title: "Tanier s motívom sv. Genovévy",
                 description: "Glazovaná keramika. SNG, NL 663, získané kúpou v roku 1972 "
             },
             "NL_669": {
-                title: "Váza I.",
+                title: "Džbán s motívom sv. Františky",
                 description: "Glazovaná keramika. SNG, NL 669, získané kúpou v roku 1972"
             },
             "NL_664": {
@@ -101,22 +101,22 @@ export const TRANSLATIONS = {
             },
             "NL_226": {
                 title: "Tanečnica",
-                description: "Glazovaná keramika. SNG, NL 226, získané kúpou v roku 1976 "
+                description: "Glazovaná keramika. SNG, NL 226, získané kúpou v roku 1976 "
             },
             "NL_668": {
-                title: "Malý džbán",
+                title: "Čepák",
                 description: "Glazovaná keramika. SNG, NL 668, získané kúpou v roku 1972"
             },
             "NL_225": {
                 title: "Tanečník",
-                description: "Glazovaná keramika. SNG, NL 225, získané kúpou v roku 1976"
+                description: "Glazovaná keramika. SNG, NL 225, získané kúpou v roku 1976"
             },
             "NL_233": {
                 title: "Tanier",
                 description: "Glazovaná keramika. SNG, NL 233, získané kúpou v roku 1976"
             },
             "NL_676": {
-                title: "Krčah ",
+                title: "Čepák",
                 description: "Glazovaná keramika. SNG, NL 679, získané kúpou v roku 1967"
             },
             "NL_675": {
@@ -124,7 +124,7 @@ export const TRANSLATIONS = {
                 description: "Glazovaná keramika. SNG, NL 675, získané kúpou v roku 1972"
             },
             "NL_679": {
-                title: "Krčah ",
+                title: "Džbán",
                 description: "Glazovaná keramika. SNG, NL 676, získané prevodom v roku 1963"
             },
             "NL_662": {
@@ -132,11 +132,35 @@ export const TRANSLATIONS = {
                 description: "Glazed ceramic. SNG, NL 662, acquired by purchase in 1971"
             },
             "NL_671": {
-                title: "Váza III.",
+                title: "Džbán",
                 description: "Glazovaná keramika. SNG, NL 671, získané kúpou v roku 1972"
             },
+        },
+        library: {
+            "svazek1" : {
+                title: "1. sešit"
+            },
+            "svazek2" : {
+                title: "2. sešit"
+            },
+            "svazek3" : {
+                title: "3. sešit"
+            },
+            "svazek4" : {
+                title: "4. sešit"
+            },
+            "svazek5" : {
+                title: "5. sešit"
+            },
+            "svazek6" : {
+                title: "6. sešit"
+            }
         }
     },
+
+
+
+
     en: {
         sng: "Slovak National Gallery",
         worksByFerdišKostka: "Works by Ferdiš Kostka in SNG collections",
@@ -156,12 +180,12 @@ export const TRANSLATIONS = {
             },
             "NL_199":
             {
-                title: "Pitcher with Piet_",
+                title: "Pitcher with Pieta",
                 description: "Glazed ceramic. SNG, NL 199, acquired by purchase in 1974"
             },
             "NL_673":
             {
-                title: "Vase V.",
+                title: "Pitcher",
                 description: "Glazed ceramic. SNG, NL 673, acquired by purchase in 1972"
             },
             "NL_200":
@@ -171,7 +195,7 @@ export const TRANSLATIONS = {
             },
             "NL_674":
             {
-                title: "Wine pitcher",
+                title: "Pitcher with Adam and Eve motif",
                 description: "Glazed ceramic. SNG, NL 674, acquired by purchase in 1972"
             },
             "NL_195":
@@ -181,7 +205,7 @@ export const TRANSLATIONS = {
             },
             "NL_667":
             {
-                title: "Large pitcher",
+                title: "Vessel for liquids",
                 description: "Glazed ceramic. SNG, NL 667, acquired by purchase in 1972"
             },
             "NL_234":
@@ -216,7 +240,7 @@ export const TRANSLATIONS = {
             },
             "NL_670":
             {
-                title: "Vase II.",
+                title: "PitcherPitcher",
                 description: "Glazed ceramic. SNG, NL 670, acquired by purchase in 1972"
             },
             "NL_196":
@@ -226,17 +250,17 @@ export const TRANSLATIONS = {
             },
             "NL_672":
             {
-                title: "Vase IV.",
+                title: "Pitcher",
                 description: "Glazed ceramic. SNG, NL 672, acquired by purchase in 1972"
             },
             "NL_663":
             {
-                title: "Large bowl",
+                title: "Plate wit St. Genevieve motif",
                 description: "Glazed ceramic. SNG, NL 663, acquired by purchase in 1972"
             },
             "NL_669":
             {
-                title: "Vase I.",
+                title: "Pitcher with St. Frances motif",
                 description: "Glazed ceramic. SNG, NL 669, acquired by purchase in 1972"
             },
             "NL_664":
@@ -251,7 +275,7 @@ export const TRANSLATIONS = {
             },
             "NL_668":
             {
-                title: "Little pitcher",
+                title: "Vessel for liquids",
                 description: "Glazed ceramic. SNG, NL 668, acquired by purchase in 1972"
             },
             "NL_225":
@@ -266,7 +290,7 @@ export const TRANSLATIONS = {
             },
             "NL_676":
             {
-                title: "Pitcher",
+                title: "Vessel for liquids",
                 description: "Glazed ceramic. SNG, NL 679, acquired by purchase in 1967"
             },
             "NL_675":
@@ -286,16 +310,35 @@ export const TRANSLATIONS = {
             },
             "NL_671":
             {
-                title: "Vase III.",
+                title: "Pitcher",
                 description: "Glazed ceramic. SNG, NL 671, acquired by purchase in 1972"
+            }
+        },
+        library: {
+            "svazek1" : {
+                title: "Notebook No. 1"
+            },
+            "svazek2" : {
+                title: "Notebook No. 2"
+            },
+            "svazek3" : {
+                title: "Notebook No. 3"
+            },
+            "svazek4" : {
+                title: "Notebook No. 4"
+            },
+            "svazek5" : {
+                title: "Notebook No. 5"
+            },
+            "svazek6" : {
+                title: "Notebook No. 6"
             }
         }
     }
 }
 
 type Publication = {
-    id: string
-    title: string
+    id: string,
     pages: Number,
     featuredPages: number[]
 }
@@ -303,37 +346,31 @@ type Publication = {
 export const LIBRARY: Array<Publication> = [
     {
         id: "svazek1",
-        title: "1. sešit",
         pages: 18,
         featuredPages: [11, 13, 15]
     },
     {
         id: "svazek2",
-        title: "2. sešit",
         pages: 14,
         featuredPages: [4, 6, 11]
     },
     {
         id: "svazek3",
-        title: "3. sešit",
         pages: 14,
         featuredPages: [4, 9, 12]
     },
     {
         id: "svazek4",
-        title: "4. sešit",
         pages: 13,
         featuredPages: [3, 5, 11]
     },
     {
         id: "svazek5",
-        title: "5. sešit",
         pages: 14,
         featuredPages: [6, 8, 10]
     },
     {
         id: "svazek6",
-        title: "6. sešit",
         pages: 14,
         featuredPages: [5, 7, 10]
     }

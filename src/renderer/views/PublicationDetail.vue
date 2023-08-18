@@ -4,21 +4,20 @@
       <div class="flex items-center gap-4">
         <button @click="router.back()"><ArrowUp class="w-8 h-8" /></button>
         <span class="font-bold">Dušan Jurkovič</span>
-        <span>{{ trans("worksOfSlovakPeople") }}</span>
-        <span>1905</span>
+        <span>{{ trans(`library.${publication.id}.title`) }}</span>
       </div>
       <LanguageSwitcher />
     </div>
     <div class="grow flex items-center">
       <div class="w-full flex gap-x-11 snap-x snap-mandatory overflow-x-auto no-scrollbar pt-16 pb-6 px-11">
         <div
-          class="snap-center shrink-0 w-[809px] h-[1018px] overflow-hidden"
+          class="snap-center shrink-0 w-[700px] h-[880px] overflow-hidden flex items-center"
           v-for="(image, index) in images"
           :key="index"
           :ref="(el) => (image.wrapperRef = el)"
         >
           <img
-            class="w-[809px] h-auto"
+            class="w-[700px] h-auto"
             :style="getImageStyle(index)"
             :src="image.src"
             @touchstart="(event) => handleTouchStart(event, index)"
@@ -114,7 +113,7 @@ const handleTouchEnd = (event: TouchEvent, index: number) => {
 };
 
 onMounted(() => {
-  for (let i = 0; i < Number(publication.pages); i++) {
+  for (let i = 1; i < Number(publication.pages); i++) {
     images.value.push({
       src: `library/${publication.id}/${publication.id}-${String(i + 1).padStart(2, "0")}.jpg`,
       scale: 1,
