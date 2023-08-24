@@ -11,13 +11,13 @@
     <div class="grow flex items-center">
       <div class="w-full flex gap-x-11 snap-x snap-mandatory overflow-x-auto no-scrollbar pt-16 pb-6 px-11">
         <div
-          class="snap-center shrink-0 w-[700px] h-[880px] overflow-hidden flex items-center"
+          class="snap-center flex items-center overflow-hidden min-w-[700px]"
           v-for="(image, index) in images"
           :key="index"
           :ref="(el) => (image.wrapperRef = el)"
         >
           <img
-            class="w-[700px] h-auto"
+            class="w-full"
             :style="getImageStyle(index)"
             :src="image.src"
             @touchstart="(event) => handleTouchStart(event, index)"
@@ -113,8 +113,9 @@ const handleTouchEnd = (event: TouchEvent, index: number) => {
 };
 
 onMounted(() => {
+  let pageImages: Array<ImageData> = [];
   for (let i = 1; i < Number(publication.pages); i++) {
-    images.value.push({
+    pageImages.push({
       src: `library/${publication.id}/${publication.id}-${String(i + 1).padStart(2, "0")}.jpg`,
       scale: 1,
       initialX: 0,
@@ -124,13 +125,7 @@ onMounted(() => {
       wrapperRef: ref(null),
     });
   }
-});
-
-onUnmounted(() => {
-  images.value.forEach((image) => {
-    image.initialDistance = 0;
-    image.initialScale = 1;
-  });
+  images.value = pageImages;
 });
 
 const getImageStyle = (index: number) => {

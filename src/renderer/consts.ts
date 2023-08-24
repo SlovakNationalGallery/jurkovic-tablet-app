@@ -157,10 +157,6 @@ export const TRANSLATIONS = {
             }
         }
     },
-
-
-
-
     en: {
         sng: "Slovak National Gallery",
         worksByFerdišKostka: "Works by Ferdiš Kostka in SNG collections",
