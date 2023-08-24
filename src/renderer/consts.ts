@@ -135,12 +135,28 @@ export const TRANSLATIONS = {
                 title: "Džbán",
                 description: "Glazovaná keramika. SNG, NL 671, získané kúpou v roku 1972"
             },
+        },
+        library: {
+            "svazek1" : {
+                title: "1. sešit"
+            },
+            "svazek2" : {
+                title: "2. sešit"
+            },
+            "svazek3" : {
+                title: "3. sešit"
+            },
+            "svazek4" : {
+                title: "4. sešit"
+            },
+            "svazek5" : {
+                title: "5. sešit"
+            },
+            "svazek6" : {
+                title: "6. sešit"
+            }
         }
     },
-
-
-
-
     en: {
         sng: "Slovak National Gallery",
         worksByFerdišKostka: "Works by Ferdiš Kostka in SNG collections",
@@ -293,13 +309,32 @@ export const TRANSLATIONS = {
                 title: "Pitcher",
                 description: "Glazed ceramic. SNG, NL 671, acquired by purchase in 1972"
             }
+        },
+        library: {
+            "svazek1" : {
+                title: "Notebook No. 1"
+            },
+            "svazek2" : {
+                title: "Notebook No. 2"
+            },
+            "svazek3" : {
+                title: "Notebook No. 3"
+            },
+            "svazek4" : {
+                title: "Notebook No. 4"
+            },
+            "svazek5" : {
+                title: "Notebook No. 5"
+            },
+            "svazek6" : {
+                title: "Notebook No. 6"
+            }
         }
     }
 }
 
 type Publication = {
-    id: string
-    title: string
+    id: string,
     pages: Number,
     featuredPages: number[]
 }
@@ -307,37 +342,31 @@ type Publication = {
 export const LIBRARY: Array<Publication> = [
     {
         id: "svazek1",
-        title: "1. sešit",
         pages: 18,
         featuredPages: [11, 13, 15]
     },
     {
         id: "svazek2",
-        title: "2. sešit",
         pages: 14,
         featuredPages: [4, 6, 11]
     },
     {
         id: "svazek3",
-        title: "3. sešit",
         pages: 14,
         featuredPages: [4, 9, 12]
     },
     {
         id: "svazek4",
-        title: "4. sešit",
         pages: 13,
         featuredPages: [3, 5, 11]
     },
     {
         id: "svazek5",
-        title: "5. sešit",
         pages: 14,
         featuredPages: [6, 8, 10]
     },
     {
         id: "svazek6",
-        title: "6. sešit",
         pages: 14,
         featuredPages: [5, 7, 10]
     }

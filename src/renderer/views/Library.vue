@@ -45,7 +45,7 @@
               </div>
             </div>
             <h2 class="text-4xl font-bold text-neutral-900 py-6">
-              {{ publication.title }}
+              {{ trans(`library.${publication.id}.title`) }}
             </h2>
           </router-link>
         </div>
