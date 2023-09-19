@@ -57,7 +57,6 @@ interface ImageData {
   scale: number;
   x: number;
   y: number;
-  isBeingTransformed: Boolean;
   initialX: number;
   initialY: number;
   initialDistance: number;
@@ -142,7 +141,6 @@ onMounted(() => {
       initialDistance: 0,
       initialScale: 1,
       wrapperRef: ref(null),
-      isBeingTransformed: false,
     });
   }
   images.value = pageImages;
