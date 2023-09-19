@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, Ref, resolveComponent, Fragment } from "vue";
+import { ref, onMounted, Ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { LIBRARY } from "../consts";
 import ArrowUp from "../icons/ArrowUp.vue";
