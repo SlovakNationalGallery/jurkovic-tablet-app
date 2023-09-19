@@ -20,7 +20,7 @@
           <img
             class="w-full"
             :src="image.src"
-            :ref="(el) => (image.wrappeRef = el)"
+            :ref="(el) => (image.wrapperRef = el)"
             @touchstart="(event) => handleTouchStart(event, index)"
             @touchmove="(event) => handleTouchMove(event, index)"
             @touchend="(event) => handleTouchEnd(event, index)"
@@ -61,7 +61,7 @@ interface ImageData {
   initialY: number;
   initialDistance: number;
   initialScale: number;
-  wrappeRef: Ref<HTMLElement | null>;
+  wrapperRef: Ref<HTMLElement | null>;
 }
 
 const images: Ref<Array<ImageData>> = ref([]);
@@ -97,8 +97,8 @@ const handleTouchMove = (event: TouchEvent, index: number) => {
       touch2.clientY - touch1.clientY
     );
 
-    const frameRect = image.wrappeRef?.parentElement?.getBoundingClientRect();
-    const wrapperRef = image.wrappeRef;
+    const frameRect = image.wrapperRef?.parentElement?.getBoundingClientRect();
+    const wrapperRef = image.wrapperRef;
     const delta = newDistance / image.initialDistance;
 
     const scale = Math.min(
