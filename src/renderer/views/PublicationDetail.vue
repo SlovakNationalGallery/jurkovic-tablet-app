@@ -55,6 +55,8 @@ const { trans } = useLang();
 interface ImageData {
   src: string;
   initialDistance: number;
+  initialTouchCenterX: number;
+  initialTouchCenterY: number;
   wrapperRef: Ref<HTMLElement | null>;
 }
 
@@ -73,8 +75,8 @@ const handleTouchStart = (event: TouchEvent, index: number) => {
       touch2.clientX - touch1.clientX,
       touch2.clientY - touch1.clientY
     );
-    const touchCenterX = (touch2.clientX + touch1.clientX) / 2;
-    const touchCenterY = (touch2.clientY + touch1.clientY) / 2;
+    image.initialTouchCenterX = (touch2.clientX + touch1.clientX) / 2;
+    image.initialTouchCenterY = (touch2.clientY + touch1.clientY) / 2;
 
   }
 };
@@ -102,8 +104,9 @@ const handleTouchMove = (event: TouchEvent, index: number) => {
 
     scale = Math.min(maxScale, Math.max(minScale, scale + delta * 0.01));
 
-    const x = touchCenterX - frameRect.left;
-    const y = touchCenterY - frameRect.top;
+    //inverse movement
+    const x = (2 * image.initialTouchCenterX - touchCenterX) - frameRect.left;
+    const y = (2 * image.initialTouchCenterY - touchCenterY) - frameRect.top;
 
     wrapperRef.style.transform = `scale(${scale})`;
     wrapperRef.style.transformOrigin = `${x}px ${y}px`;
@@ -114,7 +117,6 @@ const handleTouchMove = (event: TouchEvent, index: number) => {
 
 const handleTouchEnd = (event: TouchEvent, index: number) => {
   const image = images.value[index];
-  image.initialDistance = 0;
   const wrapperRef = image.wrapperRef;
   wrapperRef.style.transition = `all .25s`;
   wrapperRef.style.transform = `scale(1)`;
