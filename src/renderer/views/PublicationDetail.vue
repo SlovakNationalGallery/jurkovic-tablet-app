@@ -54,13 +54,7 @@ const { trans } = useLang();
 
 interface ImageData {
   src: string;
-  scale: number;
-  x: number;
-  y: number;
-  initialX: number;
-  initialY: number;
   initialDistance: number;
-  initialScale: number;
   wrapperRef: Ref<HTMLElement | null>;
 }
 
@@ -79,13 +73,20 @@ const handleTouchStart = (event: TouchEvent, index: number) => {
       touch2.clientX - touch1.clientX,
       touch2.clientY - touch1.clientY
     );
-    image.initialScale = image.scale;
+    const touchCenterX = (touch2.clientX + touch1.clientX) / 2;
+    const touchCenterY = (touch2.clientY + touch1.clientY) / 2;
+
   }
 };
 
 const handleTouchMove = (event: TouchEvent, index: number) => {
   const image = images.value[index];
+  const frameRect = image.wrapperRef?.parentElement?.getBoundingClientRect();
+  const wrapperRef = image.wrapperRef;
+
+  let scale = 1;
   if (event.touches.length === 2) {
+    wrapperRef.style.transition = `all .0s`;
     event.preventDefault();
     const touch1 = event.touches[0];
     const touch2 = event.touches[1];
@@ -97,49 +98,37 @@ const handleTouchMove = (event: TouchEvent, index: number) => {
       touch2.clientY - touch1.clientY
     );
 
-    const frameRect = image.wrapperRef?.parentElement?.getBoundingClientRect();
-    const wrapperRef = image.wrapperRef;
-    const delta = newDistance / image.initialDistance;
+    const delta = newDistance - image.initialDistance;
 
-    const scale = Math.min(
-      maxScale,
-      Math.max(minScale, image.scale * delta)
-    );
+    scale = Math.min(maxScale, Math.max(minScale, scale + delta * 0.01));
 
-    image.scale = scale;
+    const x = touchCenterX - frameRect.left;
+    const y = touchCenterY - frameRect.top;
 
-    const transformedTouchCenterX = ((touchCenterX - image.initialX) / image.initialScale) + image.initialX
-    const transformedTouchCenterY = ((touchCenterY - image.initialY) / image.initialScale) + image.initialY
-    image.x = (transformedTouchCenterX - frameRect.left);
-    image.y = (transformedTouchCenterY - frameRect.top);
-
-    wrapperRef.style.transform = `scale(${image.scale})`;
-    wrapperRef.style.transformOrigin = `${image.x}px ${image.y}px`
+    wrapperRef.style.transform = `scale(${scale})`;
+    wrapperRef.style.transformOrigin = `${x}px ${y}px`;
+  } else {
+    wrapperRef.style.transition = `all .25s`;
   }
 };
 
 const handleTouchEnd = (event: TouchEvent, index: number) => {
   const image = images.value[index];
   image.initialDistance = 0;
-  image.initialScale = image.scale;
-  image.initialX = image.x
-  image.initialY = image.y
+  const wrapperRef = image.wrapperRef;
+  wrapperRef.style.transition = `all .25s`;
+  wrapperRef.style.transform = `scale(1)`;
+  wrapperRef.style.transformOrigin = `0px 0px`;
 };
 
 onMounted(() => {
   let pageImages: Array<ImageData> = [];
   for (let i = 1; i < Number(publication.pages); i++) {
     pageImages.push({
+      initialDistance: 0,
       src: `library/${publication.id}/${publication.id}-${String(
         i + 1
       ).padStart(2, "0")}.jpg`,
-      scale: 1,
-      x: 0,
-      y: 0,
-      initialX: 0,
-      initialY: 0,
-      initialDistance: 0,
-      initialScale: 1,
       wrapperRef: ref(null),
     });
   }
