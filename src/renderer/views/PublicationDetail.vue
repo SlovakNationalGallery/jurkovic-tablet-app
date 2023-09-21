@@ -128,6 +128,8 @@ onMounted(() => {
   for (let i = 1; i < Number(publication.pages); i++) {
     pageImages.push({
       initialDistance: 0,
+      initialTouchCenterX: 0,
+      initialTouchCenterY: 0,
       src: `library/${publication.id}/${publication.id}-${String(
         i + 1
       ).padStart(2, "0")}.jpg`,
