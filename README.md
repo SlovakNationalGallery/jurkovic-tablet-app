@@ -1,14 +1,4 @@
-Vue.js + Electron.js app based on [Deluze/electron-vue-template](https://github.com/Deluze/electron-vue-template) for the Slovak National Gallery in Zvolen.
-
-Including the object panorama viewer built on the top of [Object2VR Player](https://ggnome.com/object2vr/)
-
-![screenshot kostka](https://github.com/SlovakNationalGallery/jurkovic-tablet-app/blob/media/kostka.png?raw=true)
-![screenshot kostka detail](https://github.com/SlovakNationalGallery/jurkovic-tablet-app/blob/media/kostka_detail.png?raw=true)
-
-And custom viewer for publications with scroll snapping and zooming:
-
-![screenshot jurkovic](https://github.com/SlovakNationalGallery/jurkovic-tablet-app/blob/media/jurkovic.png?raw=true)
-![screenshot jurkovic detail](https://github.com/SlovakNationalGallery/jurkovic-tablet-app/blob/media/jurkovic_detail.png?raw=true)
+Vue.js + Electron.js app based on [Deluze/electron-vue-template](https://github.com/Deluze/electron-vue-template) for the Slovak National Gallery.
 
 ## Project setup
 ```
