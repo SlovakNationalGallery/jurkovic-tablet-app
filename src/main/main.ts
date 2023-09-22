@@ -5,7 +5,7 @@ function createWindow () {
   const mainWindow = new BrowserWindow({
     // width: 1280,
     // height: 1920,
-    fullscreen: true,
+    fullscreen: false,
     kiosk: true,
     webPreferences: {
       preload: join(__dirname, 'preload.js'),

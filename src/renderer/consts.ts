@@ -9,87 +9,92 @@ type Publication = {
 export const TRANSLATIONS = {
     sk: {
         sng: "Slovenská národná galéria",
-        worksOfSlovakPeople: "Práce lidu našeho",
-        worksOfSlovakPeopleDescription1: "Dušan Samuel Jurkovič: Práce lidu našeho. Lidové stavby, zařízení a výzdoba obydlí, drobné práce. Viedeň : A. Schroll & Co., 1905. 6 zošitov. Fotografie: Josef Klvaňa",
-        worksOfSlovakPeopleDescription2: "Digitalizácia: Knižnica Akadémie vied ČR, Praha",
+        igorGazdikCollection: "Výber z knižnej zbierky Igora Gazdíka",
+        igorGazdikCollectionDescription: [
+            "Pavel Dobšinský: Prostonárodné slovenské povesti, sošit 1. Turčiansky sv. Martin : Kníhtlačiarsky účastinársky spolok, 1922. Tretie vydanie. Ilustrácie Andrej Mihal. SNG, UP-P 3280/30a",
+            "Pavel Dobšinský: Prostonárodné slovenské povesti, sošit 9. Turčiansky sv. Martin : Kníhtlačiarsky účastinársky spolok, 1922. Ilustrácie  Mikuláš Galanda. SNG, UP-P 3280/30b",
+            "Ivan Horváth: Strieborný prach. Bratislava : Slovenská grafia, 1929. Typografia Karel Jaroň. SNG, UP-P 3280/41",
+            "Jaroslav Seifert: Na vlnách TSF.  Praha : Václav Petr, 1925. Edícia Hosta, zväzok 1. Obálka a typografia Karel Teige. SNG, UP-P 3280/3649"],
         library: {
-            "svazek1" : {
-                title: "1. sešit"
+            "1": {
+                title: "Strieborný prach",
+                author: "Ivan Horváth",
+                year: '1929'
             },
-            "svazek2" : {
-                title: "2. sešit"
+            "2": {
+                title: "Prostonárodné slovenské povesti",
+                subhead: "sošit 1",
+                author: "Pavel Dobšinský",
+                year: '1922'
             },
-            "svazek3" : {
-                title: "3. sešit"
+            "3": {
+                title: "Na vlnách TSF",
+                author: "Jaroslav Seifert",
+                year: '1925'
             },
-            "svazek4" : {
-                title: "4. sešit"
+            "4": {
+                title: "Prostonárodné slovenské povesti",
+                subhead: "sošit 9",
+                author: "Pavel Dobšinský",
+                year: '1922'
             },
-            "svazek5" : {
-                title: "5. sešit"
-            },
-            "svazek6" : {
-                title: "6. sešit"
-            }
         }
     },
     en: {
         sng: "Slovak National Gallery",
-        worksOfSlovakPeople: "Works of Our People",
-        worksOfSlovakPeopleDescription1: "Dušan Samuel Jurkovič: Works of Our People. Vernacular buildings, furnishings, and decoration of dwellings, small works. Wien : A. Schroll & Co., 1905. 6 notebooks. Photographs: Josef Klvaňa",
-        worksOfSlovakPeopleDescription2: "Digitalisation Library of Czech Academy of Sciences, Prag",
+        igorGazdikCollection: "Selection from the book collection of Igor Gazdík",
+        igorGazdikCollectionDescription: [
+            "Pavel Dobšinský: Prostonárodné slovenské povesti (Slovak Tales), notebook 1. Turčiansky sv. Martin : Kníhtlačiarsky účastinársky spolok, 1922. Third edition. Illustrations Andrej Mihal. SNG, UP-P 3280/30a",
+            "Pavel Dobšinský: Prostonárodné slovenské povesti (Slovak Tales), notebook 9. Turčiansky sv. Martin : Kníhtlačiarsky účastinársky spolok, 1922. Second edition. Illustrations  Mikuláš Galanda. SNG, UP-P 3280/30b",
+            "Ivan Horváth: Strieborný prach (Silver Dust). Bratislava : Slovenská grafia, 1929. Typography Karel Jaroň. SNG, UP-P 3280/41",
+            "Jaroslav Seifert: Na vlnách TSF (On the Waves of TSF). Prague : Václav Petr, 1925. Hosta Edition, Volume 1. Cover and typography Karel Teige. SNG, UP-P 3280/3649"
+        ],
         library: {
-            "svazek1" : {
-                title: "Notebook No. 1"
+            "1": {
+                title: "Silver Dust",
+                author: "Ivan Horváth",
+                year: '1929'
             },
-            "svazek2" : {
-                title: "Notebook No. 2"
+            "2": {
+                title: "Slovak Tales",
+                subhead: "notebook 1",
+                author: "Pavel Dobšinský",
+                year: '1922'
             },
-            "svazek3" : {
-                title: "Notebook No. 3"
+            "3": {
+                title: "On the Waves of TSF",
+                author: "Jaroslav Seifert",
+                year: '1925'
             },
-            "svazek4" : {
-                title: "Notebook No. 4"
+            "4": {
+                title: "Slovak Tales",
+                subhead: "notebook 9",
+                author: "Pavel Dobšinský",
+                year: '1922'
             },
-            "svazek5" : {
-                title: "Notebook No. 5"
-            },
-            "svazek6" : {
-                title: "Notebook No. 6"
-            }
         }
     }
 }
 
 export const LIBRARY: Array<Publication> = [
     {
-        id: "svazek1",
-        pages: 18,
+        id: "1",
+        pages: 19,
         featuredPages: [11, 13, 15]
     },
     {
-        id: "svazek2",
-        pages: 14,
+        id: "2",
+        pages: 19,
         featuredPages: [4, 6, 11]
     },
     {
-        id: "svazek3",
-        pages: 14,
-        featuredPages: [4, 9, 12]
+        id: "3",
+        pages: 5,
+        featuredPages: [2, 4, 5]
     },
     {
-        id: "svazek4",
-        pages: 13,
+        id: "4",
+        pages: 21,
         featuredPages: [3, 5, 11]
     },
-    {
-        id: "svazek5",
-        pages: 14,
-        featuredPages: [6, 8, 10]
-    },
-    {
-        id: "svazek6",
-        pages: 14,
-        featuredPages: [5, 7, 10]
-    }
 ]
