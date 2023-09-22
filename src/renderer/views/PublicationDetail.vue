@@ -5,7 +5,7 @@
         <button @click="router.back()"><ArrowUp class="w-8 h-8" /></button>
         <span class="font-bold">{{ trans(`library.${publication.id}.author`)}}</span>
         <span>{{ trans(`library.${publication.id}.title`) }}</span>
-        <span>{{ (trans(`library.${publication.id}.year`)) }}</span>
+        <span>({{ trans(`library.${publication.id}.year`) }})</span>
       </div>
       <LanguageSwitcher />
     </div>

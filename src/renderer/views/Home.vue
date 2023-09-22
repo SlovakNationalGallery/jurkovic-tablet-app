@@ -2,8 +2,7 @@
   <div class="flex flex-col h-screen bg-[#FFF3E3]">
     <div class="w-full h-[80px] flex items-center justify-between p-6 text-2xl">
       <div class="flex items-center gap-4">
-        <span>{{ trans("igorGazdikCollection") }}</span>
-        <span>1905</span>
+        <span class="font-bold">{{ trans("igorGazdikCollection") }}</span>
       </div>
       <LanguageSwitcher />
     </div>
@@ -57,6 +56,9 @@
               {{ trans(`library.${publication.id}.author`) }}
             </h3>
             <h3 class="text-3xl text-neutral-700 pt-2">
+              {{ trans(`library.${publication.id}.year`) }}
+            </h3>
+            <h3 class="text-2xl text-neutral-700 pt-2">
               {{ trans(`library.${publication.id}.subhead`) }}
             </h3>
           </router-link>
