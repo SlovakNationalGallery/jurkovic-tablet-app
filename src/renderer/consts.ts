@@ -80,21 +80,21 @@ export const LIBRARY: Array<Publication> = [
     {
         id: "1",
         pages: 19,
-        featuredPages: [11, 13, 15]
+        featuredPages: [3, 2, 16]
     },
     {
         id: "2",
         pages: 19,
-        featuredPages: [4, 6, 11]
+        featuredPages: [8, 5, 2]
     },
     {
         id: "3",
         pages: 5,
-        featuredPages: [2, 4, 5]
+        featuredPages: [5, 4, 2]
     },
     {
         id: "4",
         pages: 21,
-        featuredPages: [3, 5, 11]
+        featuredPages: [2, 18, 12]
     },
 ]

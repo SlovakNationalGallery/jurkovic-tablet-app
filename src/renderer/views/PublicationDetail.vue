@@ -126,12 +126,12 @@ const handleTouchEnd = (event: TouchEvent, index: number) => {
 
 onMounted(() => {
   let pageImages: Array<ImageData> = [];
-  for (let i = 1; i < Number(publication.pages); i++) {
+  for (let i = 0; i < Number(publication.pages); i++) {
     pageImages.push({
       initialDistance: 0,
       initialTouchCenterX: 0,
       initialTouchCenterY: 0,
-      src: `library/${publication.id}/${publication.id}-${i}.jpg`,
+      src: `library/${publication.id}/${publication.id}-${i + 1}.jpg`,
       wrapperRef: ref(null),
     });
   }
